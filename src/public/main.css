@@ -207,12 +207,61 @@ tr td:nth-child(8) {
   margin-bottom: 10px;
 }
 
-.star-count-on{
-  color: #ffc107;
+.star-count {
+  position: relative;
+  display: inline-block;
 }
 
-.star-count-off{
+.star-count-on {
+  position: absolute;
+  top: 0;
+  color: #ffc107;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.star-count-off {
   color: #ccc;
+}
+
+.star-00 {
+  width: 0%;
+}
+
+.star-10 {
+  width: 20%;
+}
+
+.star-15 {
+  width: 30%;
+}
+
+.star-20 {
+  width: 40%;
+}
+
+.star-25 {
+  width: 50%;
+}
+
+.star-30 {
+  width: 60%;
+}
+
+.star-35 {
+  width: 70%;
+}
+
+.star-40 {
+  width: 80%;
+}
+
+.star-45 {
+  width: 90%;
+}
+
+.star-50 {
+  width: 100%;
 }
 
 @media screen and (max-width: 1200px) {

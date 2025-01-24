@@ -98,7 +98,18 @@
               <td><%= content.downloadCount %></td>
               <td><%= content.voteAverageScore.toFixed(2) %>
                 <div class="star-count">
-                  <% if (content.voteAverageScore >= 4.5) {  %>
+                  <div class="star-count-on star-<% if (content.voteAverageScore >= 4.75) { %>50<% }
+                              else if (content.voteAverageScore > 4.25) { %>45<% }
+                              else if (content.voteAverageScore >= 3.75) { %>40<% }
+                              else if (content.voteAverageScore > 3.25) { %>35<% }
+                              else if (content.voteAverageScore >= 2.75) { %>30<% }
+                              else if (content.voteAverageScore > 2.25) { %>25<% }
+                              else if (content.voteAverageScore >= 1.75) { %>20<% }
+                              else if (content.voteAverageScore > 1.25) { %>15<% }
+                              else if (content.voteAverageScore >= 1) { %>10<% }
+                              else { %>00<% } %>">★★★★★</div>
+                  <div class="star-count-off">☆☆☆☆☆</div>
+<!--                   <% if (content.voteAverageScore >= 4.5) {  %>
                     <span class="star-count-on">★★★★★</span>
                   <% } else if (content.voteAverageScore >= 3.5) {  %>
                     <span class="star-count-on">★★★★</span><span class="star-count-off">☆</span>
@@ -110,7 +121,7 @@
                     <span class="star-count-on">★</span><span class="star-count-off">☆☆☆☆</span>
                   <% } else {  %>
                     <span class="star-count-off">☆☆☆☆☆</span>
-                  <% } %>
+                  <% } %> -->
                 </div></td>
 <!--               <% if (content.contentType === 0) { %>
               <td class="difficulty">
