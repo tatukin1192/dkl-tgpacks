@@ -19,7 +19,7 @@
           <div class="select search-options">
             <select id="searchBy" class="select">
               <option value="name">コンテンツ名</option>
-              <option value="publisher">発行者</option>
+              <option value="publisher">作成者</option>
             </select>
           </div>
           <input
@@ -45,8 +45,8 @@
 
       <p class="summury">
         ダンカグライク用のカスタムサーバーです。<br>
-        たつきんが一般配布しているパッケージを、アプリ内からダウンロードすることが可能です。<br>
-        使い方は<a href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
+        舞孫弗たつきんが一般配布しているパッケージを、アプリ内からダウンロードすることが可能です。<br>
+        詳しい使い方は<a href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
       </p>
       
       <p id="resultCount">コンテンツ数：<%= totalCount %>件</p>
@@ -81,7 +81,7 @@
             <tr>
               <td><%= content.id %></td>
               <td>
-                <%= content.contentType === 0 ? "Songs\n(Packages)" : content.contentType
+                <%- content.contentType === 0 ? "Songs<br>(パッケージ)" : content.contentType
                 === 1 ? "NoteSkins" : content.contentType === 2 ? "SoundEffects"
                 : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
               </td>
