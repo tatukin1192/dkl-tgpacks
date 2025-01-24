@@ -13,11 +13,13 @@
 
 ## 使い方
 
+左上のボタンを押します。
 ![](https://lh3.googleusercontent.com/d/1py4gcrFlqTvLh0qrzc8o2krHElhzbL5m)
 
+「設定」を押します。
 ![](https://lh3.googleusercontent.com/d/1edsMZwrGxoBoAzWlsBtJtMYlaDgxoI47)
 
-BaseURLに以下のURLをコピーして貼り付けてください。
+BaseURLに以下のURLをコピーして貼り付けます。
 ```
 https://tg-dklpacks.glitch.me/
 ```
