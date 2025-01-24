@@ -46,7 +46,7 @@
       <p class="summury">
         ダンカグライク用のカスタムサーバーです。<br>
         舞孫弗たつきんが一般配布しているパッケージを、アプリ内からダウンロードすることが可能です。<br>
-        詳しい使い方は<a href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
+        詳しい使い方は<a target="_blank" href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
       </p>
       
       <p id="resultCount">コンテンツ数：<%= totalCount %>件</p>
@@ -86,14 +86,32 @@
                 : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
               </td>
               <td>
-<!--                 <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>"> -->
-                <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1AWqQ_z61MphznxruRqhiN3_ZitYTCjuO" alt="<%= content.title %>">
+                <% if (content.imageUrl === "" ) { %>
+                <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1AWqQ_z61MphznxruRqhiN3_ZitYTCjuO" alt="no image">
+                <% } else { %>
+                <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>" onerror="this.onerror = null; this.src='https://lh3.googleusercontent.com/d/1AWqQ_z61MphznxruRqhiN3_ZitYTCjuO'; this.alt='loading error';" \>
+                <% } %>
               </td>
               <td><%= content.title %></td>
               <td><%= content.publisher %></td>
               <td style="white-space: nowrap"><%= content.date %></td>
               <td><%= content.downloadCount %></td>
-              <td><%= content.voteAverageScore %></td>
+              <td><%= content.voteAverageScore.toFixed(2) %>
+                <div class="star-count">
+                  <% if (content.voteAverageScore >= 4.5) {  %>
+                    <span class="star-count-on">★★★★★</span>
+                  <% } else if (content.voteAverageScore >= 3.5) {  %>
+                    <span class="star-count-on">★★★★</span><span class="star-count-off">☆</span>
+                  <% } else if (content.voteAverageScore >= 2.5) {  %>
+                    <span class="star-count-on">★★★</span><span class="star-count-off">☆☆</span></span>
+                  <% } else if (content.voteAverageScore >= 1.5) {  %>
+                    <span class="star-count-on">★★</span><span class="star-count-off">☆☆☆</span>
+                  <% } else if (content.voteAverageScore >= 0.5) {  %>
+                    <span class="star-count-on">★</span><span class="star-count-off">☆☆☆☆</span>
+                  <% } else {  %>
+                    <span class="star-count-off">☆☆☆☆☆</span>
+                  <% } %>
+                </div></td>
 <!--               <% if (content.contentType === 0) { %>
               <td class="difficulty">
                 <span class="diff" id="diff-easy">
