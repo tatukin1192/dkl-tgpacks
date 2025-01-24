@@ -75,7 +75,7 @@ app.get("/", async (req, res) => {
   
   // Get the current page from the query string, default to 1
   const page = parseInt(req.query.page) || 1;
-  const itemsPerPage = 15;
+  const itemsPerPage = 100;
   const offset = (page - 1) * itemsPerPage;
 
   // Fetch the total number of contents

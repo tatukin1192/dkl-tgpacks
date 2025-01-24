@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | DankaguLike EN charts</title>
+    <title>ダンカグライク Tatsukin Server</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
@@ -14,12 +14,12 @@
   <body>
     <div class="container">
       <div class="title-container">
-        <h1 class="title">DankaguLike charts</h1>
+        <h1 class="title">ダンカグライク Tatsukin Server</h1>
         <div class="search-container">
           <div class="select search-options">
             <select id="searchBy" class="select">
-              <option value="name">By Name</option>
-              <option value="publisher">By Publisher</option>
+              <option value="name">コンテンツ名</option>
+              <option value="publisher">発行者</option>
             </select>
           </div>
           <input
@@ -43,6 +43,12 @@
         </div>
       </div>
 
+      <p class="summury">
+        ダンカグライク用のカスタムサーバーです。<br>
+        たつきんが一般配布しているパッケージを、アプリ内からダウンロードすることが可能です。<br>
+        使い方は<a href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
+      </p>
+      
       <p id="resultCount">コンテンツ数：<%= totalCount %>件</p>
 
       <div class="table-wrapper">
@@ -50,23 +56,24 @@
           <thead>
             <tr>
               <th class="sortable">ID <span class="sort-arrow"></span></th>
-              <th class="sortable">Type <span class="sort-arrow"></span></th>
-              <th class="sortable">Title <span class="sort-arrow"></span></th>
+              <th class="sortable">種別 <span class="sort-arrow"></span></th>
+              <th>画像</th>
+              <th class="sortable">コンテンツ名 <span class="sort-arrow"></span></th>
               <th class="sortable">
-                Publisher <span class="sort-arrow"></span>
+                作成者 <span class="sort-arrow"></span>
               </th>
               <th class="sortable numeric">
-                Date <span class="sort-arrow"></span>
+                公開日 <span class="sort-arrow"></span>
               </th>
               <th class="sortable numeric">
-                Downloads <span class="sort-arrow"></span>
+                DL数 <span class="sort-arrow"></span>
               </th>
               <th class="sortable numeric">
-                Score <span class="sort-arrow"></span>
+                評価 <span class="sort-arrow"></span>
               </th>
-              <th>Difficulty</th>
-              <th class="sortable">Lua <span class="sort-arrow"></span></th>
-              <th>Link</th>
+<!--               <th>難易度</th>
+              <th class="sortable">Lua <span class="sort-arrow"></span></th> -->
+              <th>DLリンク</th>
             </tr>
           </thead>
           <tbody>
@@ -74,16 +81,20 @@
             <tr>
               <td><%= content.id %></td>
               <td>
-                <%= content.contentType === 0 ? "Songs" : content.contentType
+                <%= content.contentType === 0 ? "Songs\n(Packages)" : content.contentType
                 === 1 ? "NoteSkins" : content.contentType === 2 ? "SoundEffects"
                 : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
+              </td>
+              <td>
+<!--                 <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>"> -->
+                <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1AWqQ_z61MphznxruRqhiN3_ZitYTCjuO" alt="<%= content.title %>">
               </td>
               <td><%= content.title %></td>
               <td><%= content.publisher %></td>
               <td style="white-space: nowrap"><%= content.date %></td>
               <td><%= content.downloadCount %></td>
               <td><%= content.voteAverageScore %></td>
-              <% if (content.contentType === 0) { %>
+<!--               <% if (content.contentType === 0) { %>
               <td class="difficulty">
                 <span class="diff" id="diff-easy">
                   <% if (content.songInfo.difficulties[0] === -1) { %>X<% } else
@@ -109,7 +120,7 @@
               <% } else { %>
               <td><p class="text-unavailable">Unavailable</p></td>
               <% } %>
-              <td><%= content.songInfo.hasLua ? "Yes" : "No" %></td>
+              <td><%= content.songInfo.hasLua ? "〇" : "-" %></td> -->
               <td>
                 <button
                   class="button btn-download is-link"
@@ -124,6 +135,7 @@
         </table>
       </div>
 
+      <% if (totalPages > 2) { %>
       <div
         class="pagination is-centered"
         role="navigation"
@@ -131,14 +143,14 @@
       >
         <% if (currentPage > 1) { %>
         <a class="pagination-previous" href="?page=<%= currentPage - 1 %>"
-          >Previous</a
+          >←</a
         >
         <% } else { %>
-        <a class="pagination-previous" disabled>Previous</a>
+        <a class="pagination-previous" disabled>←</a>
         <% } %> <% if (currentPage < totalPages) { %>
-        <a class="pagination-next" href="?page=<%= currentPage + 1 %>">Next</a>
+        <a class="pagination-next" href="?page=<%= currentPage + 1 %>">→</a>
         <% } else { %>
-        <a class="pagination-next" disabled>Next</a>
+        <a class="pagination-next" disabled>→</a>
         <% } %>
 
         <ul class="pagination-list">
@@ -174,6 +186,7 @@
           <% } %>
         </ul>
       </div>
+      <% } %>
     </div>
     <script src="./main.js"></script>
   </body>
