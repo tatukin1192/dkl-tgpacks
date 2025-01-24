@@ -56,7 +56,7 @@ $(document).ready(function () {
       }
     });
 
-    $("#resultCount").text(`Searched ${resultCount} result(s)`);
+    $("#resultCount").text(`検索結果：${resultCount}件`);
   });
 
   $('#search').on('input', function () {
