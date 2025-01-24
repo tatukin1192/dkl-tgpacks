@@ -22,15 +22,16 @@
 「カスタムサーバー」を押します。
 ![手順3](https://lh3.googleusercontent.com/d/1WyXp1gpGtPJDYIUB374Ftm_jg1A1aKQJ)
 
+この画面になります。
+![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
 「BaseURL」に以下のURLをコピーして貼り付けます。
 ```
 https://tg-dklpacks.glitch.me/
 ```
 ※「Authorization」には何も入力しないでください。
-![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
 
 設定画面を閉じ、下にスクロールして「コンテンツ」を押します。<br>
-※Glitchの仕様上、20秒程度待たないといけない場合があります。
 ![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
+※Glitchの仕様上、20秒程度待たないとでてこな出場合があります。
 
 使用プログラム：[WickyPlays/dklike-api-server](https://github.com/WickyPlays/dklike-api-server)
