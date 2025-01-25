@@ -96,7 +96,7 @@
               <td><%= content.publisher %></td>
               <td style="white-space: nowrap"><%= content.date %></td>
               <td><%= content.downloadCount %></td>
-              <td><%= content.voteAverageScore.toFixed(2) %>
+              <td><% if (content.voteAverageScore !== 0) {%><%= content.voteAverageScore.toFixed(2) %><% } %>
                 <div class="star-count">
                   <div class="star-count-on star-<% if (content.voteAverageScore >= 4.75) { %>50<% }
                               else if (content.voteAverageScore > 4.25) { %>45<% }
