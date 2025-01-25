@@ -36,7 +36,8 @@ https://tg-dklpacks.glitch.me/
 ダウンロードしたいコンテンツを選択します。
 ![手順6](https://lh3.googleusercontent.com/d/1gNRBDTg4GQWxv5o_eptx7SV7S09OzWPv)
 
-「ダウンロード」を押すと、コンテンツをダウンロードできます。
+「ダウンロード」を押すと、コンテンツをダウンロードできます。<br>
+※ダウンロードに時間がかかる場合があります。
 ![手順7](https://lh3.googleusercontent.com/d/1w28_8aQxPmIkayDJzHQ60zGkOQ24vJFg)
 
 ## その他
