@@ -33,8 +33,11 @@ https://tg-dklpacks.glitch.me/
 ※Glitchの仕様上、20秒程度待たないと出てこない場合があります。
 ![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
 
+ダウンロードしたいコンテンツを選択します。
+![手順6](https://lh3.googleusercontent.com/d/1gNRBDTg4GQWxv5o_eptx7SV7S09OzWPv)
 
 「ダウンロード」を押すと、コンテンツをダウンロードできます。
+![手順7](https://lh3.googleusercontent.com/d/1w28_8aQxPmIkayDJzHQ60zGkOQ24vJFg)
 
 ## その他
 
