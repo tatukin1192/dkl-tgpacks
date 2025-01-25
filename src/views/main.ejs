@@ -96,7 +96,16 @@
               <td><%= content.publisher %></td>
               <td style="white-space: nowrap"><%= content.date %></td>
               <td><%= content.downloadCount %></td>
-              <td><% if (content.voteAverageScore !== 0) {%><%= content.voteAverageScore.toFixed(2) %><% } else {%>-<%} %>
+              <td>
+                <div class="vote-score">
+                  <div class="<% if (content.voteAverageScore === 0) { %>vote-score-disable<% } %>">
+                  <%= content.voteAverageScore.toFixed(2)  %>
+                  </div>
+                  <div class="vote-score-none <% if (content.voteAverageScore !== 0) { %>vote-score-disable<% } %>">
+                  -
+                  </div>
+                </div>
+
                 <div class="star-count">
                   <div class="star-count-on star-<% if (content.voteAverageScore >= 4.75) { %>50<% }
                               else if (content.voteAverageScore > 4.25) { %>45<% }

@@ -34,7 +34,7 @@ https://tg-dklpacks.glitch.me/
 ![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
 
 
-- 「ダウンロード」を押すと、コンテンツをダウンロードできます。
+「ダウンロード」を押すと、コンテンツをダウンロードできます。
 
 ## その他
 

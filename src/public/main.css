@@ -209,6 +209,21 @@ tr td:nth-child(8) {
   margin-bottom: 10px;
 }
 
+.vote-score {
+  position: relative;
+  display: inline-block;
+}
+
+.vote-score-none {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.vote-score-disable {
+  visibility: hidden;
+}
+
 .star-count {
   position: relative;
   display: inline-block;
