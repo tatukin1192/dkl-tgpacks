@@ -15,26 +15,24 @@
 
 左上のボタンを押します。
 ![手順1](https://lh3.googleusercontent.com/d/1py4gcrFlqTvLh0qrzc8o2krHElhzbL5m)
-<br><br>
+
 「設定」を押します。
 ![手順2](https://lh3.googleusercontent.com/d/1edsMZwrGxoBoAzWlsBtJtMYlaDgxoI47)
-<br><br>
+
 「カスタムサーバー」を押します。
 ![手順3](https://lh3.googleusercontent.com/d/1WyXp1gpGtPJDYIUB374Ftm_jg1A1aKQJ)
-<br><br>
-この画面になります。
-![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
-<br><br>
+
 「BaseURL」に以下のURLをコピーして貼り付けます。
 ```
 https://tg-dklpacks.glitch.me/
 ```
 ※「Authorization」には何も入力しないでください。
-<br><br>
+![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
+
 設定画面を閉じ、下にスクロールして「コンテンツ」を押します。<br>
-![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
 ※Glitchの仕様上、20秒程度待たないと出てこない場合があります。
-<br><br>
+![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
+
 
 - 「ダウンロード」を押すと、コンテンツをダウンロードできます。
 
