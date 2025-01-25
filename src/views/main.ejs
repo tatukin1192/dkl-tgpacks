@@ -86,7 +86,7 @@
                 : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
               </td>
               <td>
-                <% if (content.imageUrl === "" ) { %>
+                <% if (content.imageUrl === "" || content.imageUrl === null ) { %>
                 <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1eoA3DR4lI2A2TxK21U2SCVS74N9T53TY" alt="no image">
                 <% } else { %>
                 <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>" onerror="this.onerror = null; this.src='https://lh3.googleusercontent.com/d/1ldKZhw2xpv3vMDah8hxwXESL5EkjE66T'; this.alt='loading error';" \>
