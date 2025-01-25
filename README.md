@@ -26,7 +26,9 @@
 ![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
 
 - 「BaseURL」に以下のURLをコピーして貼り付けます。
-`https://tg-dklpacks.glitch.me/`
+```
+https://tg-dklpacks.glitch.me/
+```
 ※「Authorization」には何も入力しないでください。
 
 - 設定画面を閉じ、下にスクロールして「コンテンツ」を押します。<br>
