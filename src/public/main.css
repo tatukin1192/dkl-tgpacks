@@ -76,6 +76,7 @@ h1 {
 
 table {
   width: 100%;
+  height: 100%;
 }
 
 th {
@@ -120,58 +121,89 @@ th.sortable.sorted-desc .sort-arrow {
 
 td {
   vertical-align: middle !important;
+  height: 100%;
 }
 
-tr th:nth-child(1) {
+tr th.table-id {
   min-width: 70px;
 }
 
-tr th:nth-child(2) {
+tr th.table-type {
   min-width: 150px;
 }
 
-tr th:nth-child(3) {
+tr th.table-image {
   min-width: 72px;
 }
 
-tr th:nth-child(4) {
+tr th.table-title {
   min-width: 250px;
 }
 
-tr th:nth-child(5) {
+tr th.table-publisher {
   min-width: 150px;
 }
 
-tr th:nth-child(6) {
+tr th.table-date {
   min-width: 100px;
 }
 
-tr th:nth-child(7) {
+tr th.table-download {
   min-width: 70px;
 }
 
-tr th:nth-child(8) {
+tr th.table-vote {
   min-width: 70px;
 }
 
-tr th:nth-child(9) {
+tr th.table-diff {
+  display: none;
+  min-width: 150px;
+}
+
+tr th.table-lua {
+  display: none;
+  min-width: 70px;
+}
+
+tr th.table-button {
   min-width: 100px;
 }
 
-tr td:nth-child(1) {
+tr td.table-id {
   text-align: right;
 }
 
-tr td:nth-child(7) {
+tr td.table-type {
+  text-align: center;
+}
+
+tr td.table-date {
+  text-align: center;
+}
+
+tr td.table-download {
   text-align: right;
 }
 
-tr td:nth-child(8) {
+tr td.table-vote {
   text-align: right;
+}
+
+tr td.table-diff {
+    display: none;
+}
+
+tr td.table-lua {
+  display: none;
+  text-align: center;
 }
 
 .difficulty {
   display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .diff {
@@ -182,6 +214,7 @@ tr td:nth-child(8) {
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
   color: #fff;
   gap: 0;
 }

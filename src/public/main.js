@@ -64,8 +64,8 @@ $(document).ready(function () {
     const searchTerm = $(this).val().toLowerCase();
 
     $('tbody tr').each(function () {
-      const name = $(this).find('td:nth-child(4)').text().toLowerCase();
-      const publisher = $(this).find('td:nth-child(5)').text().toLowerCase();
+      const name = $(this).find('td.table-title').text().toLowerCase();
+      const publisher = $(this).find('td.table-publisher').text().toLowerCase();
       
       const match = (searchBy === 'name' && name.includes(searchTerm)) ||
                     (searchBy === 'publisher' && publisher.includes(searchTerm));

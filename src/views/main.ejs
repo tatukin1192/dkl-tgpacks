@@ -55,48 +55,48 @@
         <table class="table is-striped">
           <thead>
             <tr>
-              <th class="sortable">ID <span class="sort-arrow"></span></th>
-              <th class="sortable">種別 <span class="sort-arrow"></span></th>
-              <th>画像</th>
-              <th class="sortable">コンテンツ名 <span class="sort-arrow"></span></th>
-              <th class="sortable">
+              <th class="table-id sortable">ID <span class="sort-arrow"></span></th>
+              <th class="table-type sortable">種別 <span class="sort-arrow"></span></th>
+              <th class="table-image">画像</th>
+              <th class="table-title sortable">コンテンツ名 <span class="sort-arrow"></span></th>
+              <th class="table-publisher sortable">
                 作成者 <span class="sort-arrow"></span>
               </th>
-              <th class="sortable numeric">
+              <th class="table-date sortable">
                 公開日 <span class="sort-arrow"></span>
               </th>
-              <th class="sortable numeric">
+              <th class="table-download sortable numeric">
                 DL数 <span class="sort-arrow"></span>
               </th>
-              <th class="sortable numeric">
+              <th class="table-vote sortable numeric">
                 評価 <span class="sort-arrow"></span>
               </th>
-<!--               <th>難易度</th>
-              <th class="sortable">Lua <span class="sort-arrow"></span></th> -->
-              <th>DLリンク</th>
+              <th class="table-diff">難易度</th>
+              <th class="table-lua sortable">Lua <span class="sort-arrow"></span></th>
+              <th class="table-button">DLリンク</th>
             </tr>
           </thead>
           <tbody>
             <% contents.forEach(content => { %>
             <tr>
-              <td><%= content.id %></td>
-              <td>
+              <td class="table-id"><%= content.id %></td>
+              <td class="table-type">
                 <%- content.contentType === 0 ? "Songs<br>(パッケージ)" : content.contentType
                 === 1 ? "NoteSkins" : content.contentType === 2 ? "SoundEffects"
                 : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
               </td>
-              <td>
+              <td class="table-image">
                 <% if (content.imageUrl === "" || content.imageUrl === null ) { %>
                 <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1eoA3DR4lI2A2TxK21U2SCVS74N9T53TY" alt="no image">
                 <% } else { %>
                 <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>" onerror="this.onerror = null; this.src='https://lh3.googleusercontent.com/d/1ldKZhw2xpv3vMDah8hxwXESL5EkjE66T'; this.alt='loading error';" \>
                 <% } %>
               </td>
-              <td><%= content.title %></td>
-              <td><%= content.publisher %></td>
-              <td style="white-space: nowrap"><%= content.date %></td>
-              <td><%= content.downloadCount %></td>
-              <td>
+              <td class="table-title"><%= content.title %></td>
+              <td class="table-publisher"><%= content.publisher %></td>
+              <td class="table-date" style="white-space: nowrap"><%= content.date %></td>
+              <td class="table-download"><%= content.downloadCount %></td>
+              <td  class="table-vote">
                 <div class="vote-score">
                   <div class="<% if (content.voteAverageScore === 0) { %>vote-score-disable<% } %>">
                   <%= content.voteAverageScore.toFixed(2)  %>
@@ -132,34 +132,39 @@
                     <span class="star-count-off">☆☆☆☆☆</span>
                   <% } %> -->
                 </div></td>
-<!--               <% if (content.contentType === 0) { %>
-              <td class="difficulty">
+              <% if (content.contentType === 0) { %>
+              <td class="difficulty table-diff">
                 <span class="diff" id="diff-easy">
-                  <% if (content.songInfo.difficulties[0] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[0] === -1) { %>X<% } 
+                  else　if (content.songInfo.difficulties[0] === 0) { %>-<% } else
                   { %><%= content.songInfo.difficulties[0] %><% } %>
                 </span>
                 <span class="diff" id="diff-normal">
-                  <% if (content.songInfo.difficulties[1] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[1] === -1) { %>X<% } 
+                  else　if (content.songInfo.difficulties[1] === 0) { %>-<% } else
                   { %><%= content.songInfo.difficulties[1] %><% } %>
                 </span>
                 <span class="diff" id="diff-hard">
-                  <% if (content.songInfo.difficulties[2] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[2] === -1) { %>X<% } 
+                  else　if (content.songInfo.difficulties[2] === 0) { %>-<% } else
                   { %><%= content.songInfo.difficulties[2] %><% } %>
                 </span>
                 <span class="diff" id="diff-extra">
-                  <% if (content.songInfo.difficulties[3] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[3] === -1) { %>X<% } 
+                  else　if (content.songInfo.difficulties[3] === 0) { %>-<% } else
                   { %><%= content.songInfo.difficulties[3] %><% } %>
                 </span>
                 <span class="diff" id="diff-lunatic">
-                  <% if (content.songInfo.difficulties[4] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[4] === -1) { %>X<% } 
+                  else　if (content.songInfo.difficulties[4] === 0) { %>-<% } else
                   { %><%= content.songInfo.difficulties[4] %><% } %>
                 </span>
               </td>
               <% } else { %>
-              <td><p class="text-unavailable">Unavailable</p></td>
+              <td class="table-diff"><p class="text-unavailable">-</p></td>
               <% } %>
-              <td><%= content.songInfo.hasLua ? "〇" : "-" %></td> -->
-              <td>
+              <td class="table-lua"><%= content.songInfo.hasLua ? "〇" : "-" %></td>
+              <td class="table-button">
                 <button
                   class="button btn-download is-link"
                   onclick="window.location.href='<%= content.downloadUrl %>'"
