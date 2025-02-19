@@ -201,29 +201,29 @@ tr td.table-button {
   text-align: center;
 }
 
-img{
-    cursor: pointer;
+img {
+  cursor: pointer;
 }
 
-.accordion{
+.accordion {
   margin-bottom: 10px;
 }
 
-.accordion ul{
+.accordion ul {
   padding-left: 1.5rem;
   list-style-type: disc;
 }
 
-.accordion ul ul{
+.accordion ul ul {
   list-style-type: circle;
 }
 
-.accordion div>ul{
+.accordion div > ul {
   padding-left: 1rem;
   margin-left: 10px;
 }
 
-.accordion summary{
+.accordion summary {
   cursor: pointer;
   color: #fff;
   background-color: #3e8ed0;
@@ -232,21 +232,20 @@ img{
   border-radius: 0.375rem;
 }
 
-.accordion div{
+.accordion div {
   padding: 10px;
-  background-color: #f9fafb;  
+  background-color: #f9fafb;
   border: 1px solid #d6d9e0;
   border-radius: 0.375rem;
 }
 
-.accordion[open] summary{
+.accordion[open] summary {
   border-radius: 0.375rem 0.375rem 0 0;
 }
 
-.accordion[open] div{
+.accordion[open] div {
   border-radius: 0 0 0.375rem 0.375rem;
 }
-
 
 .difficulty {
   display: flex;
@@ -407,7 +406,7 @@ img{
   background-color: #0007;
 }
 
-.popup-inside{
+.popup-inside {
   display: flex;
   align-items: center;
   width: 100%;
@@ -433,7 +432,7 @@ img{
   max-height: min(512px, 90%);
 }
 
-.popup-text{
+.popup-text {
   padding-bottom: 20px;
   text-align: center;
   font-size: 20px;
