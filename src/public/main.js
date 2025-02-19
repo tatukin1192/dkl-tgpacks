@@ -19,12 +19,8 @@ $(document).ready(function () {
         return isAscending ? valA - valB : valB - valA;
       }
 
-      let valA = isNumericColumn
-        ? parseFloat(cellA)
-        : cellA.toLowerCase();
-      let valB = isNumericColumn
-        ? parseFloat(cellB)
-        : cellB.toLowerCase();
+      let valA = isNumericColumn ? parseFloat(cellA) : cellA.toLowerCase();
+      let valB = isNumericColumn ? parseFloat(cellB) : cellB.toLowerCase();
 
       if (valA < valB) return isAscending ? -1 : 1;
       if (valA > valB) return isAscending ? 1 : -1;
@@ -59,19 +55,43 @@ $(document).ready(function () {
     $("#resultCount").text(`検索結果：${resultCount}件`);
   });
 
-  $('#search').on('input', function () {
-    const searchBy = $('#searchBy').val();
+  $("#search").on("input", function () {
+    const searchBy = $("#searchBy").val();
     const searchTerm = $(this).val().toLowerCase();
 
-    $('tbody tr').each(function () {
-      const name = $(this).find('td.table-title').text().toLowerCase();
-      const publisher = $(this).find('td.table-publisher').text().toLowerCase();
-      
-      const match = (searchBy === 'name' && name.includes(searchTerm)) ||
-                    (searchBy === 'publisher' && publisher.includes(searchTerm));
+    $("tbody tr").each(function () {
+      const name = $(this).find("td.table-title").text().toLowerCase();
+      const publisher = $(this).find("td.table-publisher").text().toLowerCase();
+
+      const match =
+        (searchBy === "name" && name.includes(searchTerm)) ||
+        (searchBy === "publisher" && publisher.includes(searchTerm));
 
       $(this).toggle(match);
     });
   });
+  
+      $('img').on('click', function() {
+        var src = $(this).attr('src');
+        var alt = $(this).attr('alt');
+        $('body').append(
+            '<div class="popup">' +
+            '<span class="popup-close"> </span>' +
+            '<div class="popup-inside">' +
+            '<div>' +
+            '<img class="popup-image" src="' + src + '">' +
+            '<p class="popup-text">'+ alt + '</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>'
+        );
+        $('.popup').fadeIn();
+
+        $('.popup-close').on('click', function() {
+            $('.popup').fadeOut(function() {
+                $(this).remove();
+            });
+        });
+    });
   
 });

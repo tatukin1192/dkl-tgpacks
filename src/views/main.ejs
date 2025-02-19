@@ -9,7 +9,6 @@
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     />
     <link rel="stylesheet" href="/main.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -43,11 +42,32 @@
         </div>
       </div>
 
-      <p class="summury">
+      <p class="summary">
         ダンカグライク用のカスタムサーバーです。<br>
         舞孫弗たつきんが一般配布しているパッケージを、アプリ内からダウンロードすることが可能です。<br>
         詳しい使い方は<a target="_blank" href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
       </p>
+      
+      <details class="id-details accordion">
+        <summary>ID凡例</summary>
+        <div class="id-contents">
+          <ul class="id-details-list">
+            <li>00000～09999：Songs(パッケージ)
+              <ul>
+                <li>01000～01999：たつきんのダンカグ創作譜面RETURNS</li>
+                <li>02000～02999：ダンカグライクAnother Package</li>
+<!--                 <li>03000～03999：ダンカグライクOverDrive Package</li> -->
+<!--                 <li>04000～04999：ダンカグライクVariety Package</li> -->
+              </ul>
+            </li>
+            <li>10000～19999：NoteSkins</li>
+            <li>20000～29999：SoundEffects</li>
+            <li>30000～39999：GlobalLua</li>
+          </ul>
+        </div>
+      </details>
+      
+      <hr>
       
       <p id="resultCount">コンテンツ数：<%= totalCount %>件</p>
 
@@ -79,18 +99,20 @@
           <tbody>
             <% contents.forEach(content => { %>
             <tr>
-              <td class="table-id"><%= content.id %></td>
+              <td class="table-id"><%= content.id.toString().padStart(5, '0') %></td>
               <td class="table-type">
                 <%- content.contentType === 0 ? "Songs<br>(パッケージ)" : content.contentType
                 === 1 ? "NoteSkins" : content.contentType === 2 ? "SoundEffects"
                 : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
               </td>
               <td class="table-image">
-                <% if (content.imageUrl === "" || content.imageUrl === null ) { %>
-                <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1eoA3DR4lI2A2TxK21U2SCVS74N9T53TY" alt="no image">
-                <% } else { %>
-                <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>" onerror="this.onerror = null; this.src='https://lh3.googleusercontent.com/d/1ldKZhw2xpv3vMDah8hxwXESL5EkjE66T'; this.alt='loading error';" \>
-                <% } %>
+                <div class="image-container">
+                  <% if (content.imageUrl === "" || content.imageUrl === null ) { %>
+                  <img class="jacket-img" src="https://lh3.googleusercontent.com/d/1eoA3DR4lI2A2TxK21U2SCVS74N9T53TY" alt="no image">
+                  <% } else { %>
+                  <img class="jacket-img" src="<%= content.imageUrl %>" alt="<%= content.title %>" onerror="this.onerror = null; this.src='https://lh3.googleusercontent.com/d/1ldKZhw2xpv3vMDah8hxwXESL5EkjE66T'; this.alt='loading error';" \>
+                  <% } %>
+                </div>
               </td>
               <td class="table-title"><%= content.title %></td>
               <td class="table-publisher"><%= content.publisher %></td>
@@ -118,19 +140,6 @@
                               else if (content.voteAverageScore >= 1) { %>10<% }
                               else { %>00<% } %>">★★★★★</div>
                   <div class="star-count-off">☆☆☆☆☆</div>
-<!--                   <% if (content.voteAverageScore >= 4.5) {  %>
-                    <span class="star-count-on">★★★★★</span>
-                  <% } else if (content.voteAverageScore >= 3.5) {  %>
-                    <span class="star-count-on">★★★★</span><span class="star-count-off">☆</span>
-                  <% } else if (content.voteAverageScore >= 2.5) {  %>
-                    <span class="star-count-on">★★★</span><span class="star-count-off">☆☆</span></span>
-                  <% } else if (content.voteAverageScore >= 1.5) {  %>
-                    <span class="star-count-on">★★</span><span class="star-count-off">☆☆☆</span>
-                  <% } else if (content.voteAverageScore >= 0.5) {  %>
-                    <span class="star-count-on">★</span><span class="star-count-off">☆☆☆☆</span>
-                  <% } else {  %>
-                    <span class="star-count-off">☆☆☆☆☆</span>
-                  <% } %> -->
                 </div></td>
               <% if (content.contentType === 0) { %>
               <td class="difficulty table-diff">
@@ -231,6 +240,7 @@
       </div>
       <% } %>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>

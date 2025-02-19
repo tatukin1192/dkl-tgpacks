@@ -6,10 +6,11 @@
 舞孫弗たつきんが一般配布しているパッケージを、アプリ内からダウンロードすることが可能です。
 
 現在配布しているパッケージは以下の通りです。
-- たつきんのダンカグ創作譜面RETURNS
-- ダンカグライクAnother Package
+
+- たつきんのダンカグ創作譜面 RETURNS
+- ダンカグライク Another Package
 <!-- - ダンカグライクOverDrive Package
-- ダンカグライクVariety Package -->
+- ダンカグライク Variety Package -->
 
 ## 使い方
 
@@ -22,15 +23,17 @@
 「カスタムサーバー」を押します。
 ![手順3](https://lh3.googleusercontent.com/d/1WyXp1gpGtPJDYIUB374Ftm_jg1A1aKQJ)
 
-「BaseURL」に以下のURLをコピーして貼り付けます。
+「BaseURL」に以下の URL をコピーして貼り付けます。
+
 ```
 https://tg-dklpacks.glitch.me/
 ```
+
 ※「Authorization」には何も入力しないでください。
 ![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
 
 設定画面を閉じ、下にスクロールして「コンテンツ」を押します。<br>
-※Glitchの仕様上、20秒程度待たないと出てこない場合があります。
+※Glitch の仕様上、20 秒程度待たないと出てこない場合があります。
 ![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
 
 ダウンロードしたいコンテンツを選択します。
@@ -42,5 +45,5 @@ https://tg-dklpacks.glitch.me/
 
 ## その他
 
-- サーバーURL：https://tg-dklpacks.glitch.me/
+- サーバー URL：https://tg-dklpacks.glitch.me/
 - 使用プログラム：[WickyPlays/dklike-api-server](https://github.com/WickyPlays/dklike-api-server)
