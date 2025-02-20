@@ -95,3 +95,24 @@ $(document).ready(function () {
     });
   
 });
+
+function downloadThis(text){
+  var orgUrl = "";
+  var keyLength = text.codePointAt(0) - 50;
+  
+  var key = "";
+  var viewUrl = text.substr(1 + keyLength);
+  
+  for (var i = 0; i < keyLength; i++){
+    key = key + String.fromCodePoint(text.substr(1, keyLength).codePointAt(i) - i * 2);
+  }
+  
+  for (var i = 0; i < viewUrl.length; i++){
+    var j = i;
+    while (j >= key.length){
+      j = j - key.length;
+    }
+    orgUrl = orgUrl + String.fromCodePoint(viewUrl.codePointAt(i) - key.codePointAt(j) - i * 2 + j);
+  }
+  window.location.href = orgUrl
+}

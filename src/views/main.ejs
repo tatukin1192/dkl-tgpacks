@@ -174,9 +174,27 @@
               <% } %>
               <td class="table-lua"><%= content.songInfo.hasLua ? "〇" : "-" %></td>
               <td class="table-button">
+                <%
+                  const dlUrl = content.downloadUrl;
+                  const key = process.env.KEY;
+                  var viewUrl = String.fromCodePoint(key.length + 50);
+                
+                  for (var i = 0; i < key.length; i++){
+                    viewUrl = viewUrl + String.fromCodePoint(key.codePointAt(i) + i * 2);
+                  }
+                                                 
+                  for (var i = 0; i < dlUrl.length; i++){
+                    var j = i;
+                    while (j >= key.length){
+                      j = j - key.length;
+                    }
+                    viewUrl = viewUrl + String.fromCodePoint(dlUrl.codePointAt(i) + key.codePointAt(j) + i * 2 - j);
+                  }
+                   %>
                 <button
                   class="button btn-download is-link"
-                  onclick="window.location.href='<%= content.downloadUrl %>'"
+                  onclick="downloadThis('<%= viewUrl %>');"
+                        
                 >
                   Download
                 </button>
@@ -241,6 +259,6 @@
       <% } %>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
