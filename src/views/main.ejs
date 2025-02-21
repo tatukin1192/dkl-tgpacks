@@ -176,9 +176,9 @@
               <td class="table-button">
                 <%
                   const dlUrl = content.downloadUrl;
-                  const key = process.env.KEY;
-                  var viewUrl = String.fromCodePoint(key.length + 50);
-                
+                  const key = (process.env.KEY || "") + "1";
+                  var viewUrl = "";
+                  
                   for (var i = 0; i < key.length; i++){
                     viewUrl = viewUrl + String.fromCodePoint(key.codePointAt(i) + i * 2);
                   }
