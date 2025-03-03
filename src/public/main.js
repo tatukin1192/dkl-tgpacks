@@ -39,11 +39,32 @@ $(document).ready(function () {
   });
 
   $("#search").on("input", function () {
-    const query = $(this).val().toLowerCase();
+    const searchBy = $("#searchBy").val();
+    var query = $(this).val().toLowerCase();
+    if (searchBy === "type"){
+      query = $("#searchType").val().toLowerCase();
+    }
+    
     let resultCount = 0;
 
     $("tbody tr").each(function () {
-      const text = $(this).text().toLowerCase();
+      var by = "";
+      switch(searchBy){
+        case "name":
+          by = "td.table-title";
+          break;
+        case "publisher":
+          by = "td.table-publisher";
+          break;
+        case "type":
+          by = "td.table-type";
+          break;
+        default:
+          break;
+      }
+      
+      const text = $(this).find(by).text().toLowerCase();
+      
       if (text.includes(query)) {
         $(this).show();
         resultCount++;
@@ -57,62 +78,133 @@ $(document).ready(function () {
 
   $("#search").on("input", function () {
     const searchBy = $("#searchBy").val();
-    const searchTerm = $(this).val().toLowerCase();
+    var searchTerm = $(this).val().toLowerCase();
+    if (searchBy === "type"){
+      searchTerm = $("#searchType").val().toLowerCase();
+    }
 
     $("tbody tr").each(function () {
       const name = $(this).find("td.table-title").text().toLowerCase();
       const publisher = $(this).find("td.table-publisher").text().toLowerCase();
+      const type = $(this).find("td.table-type").text().toLowerCase();
+      
+      var typeText = "";
+      switch(type){
+        case "Songs":
+          typeText = "Songs";
+          break;
+        case "NoteSkins":
+          typeText = "NoteSkins";
+          break;
+      case "SoundEffects":
+          typeText = "SoundEffects";
+          break;
+      case "GlobalLua":
+          typeText = "GlobalLua";
+          break;
+        default:
+          break;
+      }
 
       const match =
         (searchBy === "name" && name.includes(searchTerm)) ||
-        (searchBy === "publisher" && publisher.includes(searchTerm));
+        (searchBy === "publisher" && publisher.includes(searchTerm)) ||
+        (searchBy === "type" && type.includes(searchTerm));
 
       $(this).toggle(match);
     });
   });
   
-      $('img').on('click', function() {
-        var src = $(this).attr('src');
-        var alt = $(this).attr('alt');
-        $('body').append(
-            '<div class="popup">' +
-            '<span class="popup-close"> </span>' +
-            '<div class="popup-inside">' +
-            '<div>' +
-            '<img class="popup-image" src="' + src + '">' +
-            '<p class="popup-text">'+ alt + '</p>' +
-            '</div>' +
-            '</div>' +
-            '</div>'
-        );
-        $('.popup').fadeIn();
-
-        $('.popup-close').on('click', function() {
-            $('.popup').fadeOut(function() {
-                $(this).remove();
-            });
-        });
-    });
+  $("#searchBy").on("change", function(){
+    var searchBy = $(this).val();
+    if (searchBy === "type"){
+      $("#search").addClass("search-hidden");
+      $("#searchTypeView").removeClass("search-hidden");
+    } else{
+      $("#search").removeClass("search-hidden");
+      $("#searchTypeView").addClass("search-hidden");
+    }
+    
+    $("#search").trigger("input");
+  });
   
+  $("#searchType").on("change", function(){
+    $("#search").trigger("input");
+  });
+
+  $("img").on("click", function () {
+    var src = $(this).attr("src");
+    var alt = $(this).attr("alt");
+    $("body").append(
+      '<div class="popup">' +
+        '<span class="popup-close"> </span>' +
+        '<div class="popup-inside">' +
+        "<div>" +
+        '<img class="popup-image" src="' +
+        src +
+        '">' +
+        '<p class="popup-text">' +
+        alt +
+        "</p>" +
+        "</div>" +
+        "</div>" +
+        "</div>"
+    );
+    $(".popup").fadeIn();
+
+    $(".popup-close").on("click", function () {
+      $(".popup").fadeOut(function () {
+        $(this).remove();
+      });
+    });
+  });
 });
 
-function downloadThis(text){
+function downloadThis(text) {
   var orgUrl = "";
   var keyLength = text.codePointAt(0) - 50;
-  
+
   var key = "";
   var viewUrl = text.substr(1 + keyLength);
-  
-  for (var i = 0; i < keyLength; i++){
-    key = key + String.fromCodePoint(text.substr(1, keyLength).codePointAt(i) - i * 2);
+
+  for (var i = 0; i < keyLength; i++) {
+    key =
+      key +
+      String.fromCodePoint(text.substr(1, keyLength).codePointAt(i) - i * 2);
   }
-  
-  for (var i = 0; i < viewUrl.length; i++){
+
+  for (var i = 0; i < viewUrl.length; i++) {
     var j = i;
-    while (j >= key.length){
+    while (j >= key.length) {
       j = j - key.length;
     }
-    orgUrl = orgUrl + String.fromCodePoint(viewUrl.codePointAt(i) - key.codePointAt(j) - i * 2 + j);
+    orgUrl =
+      orgUrl +
+      String.fromCodePoint(
+        viewUrl.codePointAt(i) - key.codePointAt(j) - i * 2 + j
+      );
   }
-  window.location.href = orgUrl
+  window.location.href = orgUrl;
+}
+
+function searchPack(text) {
+  const search = document.getElementById("search");
+  const searchBy = document.getElementById("searchBy");
+  search.value = text;
+  searchBy.value = "name";
+  
+  search.dispatchEvent(new Event("input"));
+  searchBy.dispatchEvent(new Event("change"));
+  
+}
+
+function searchType(text) {
+  const search = document.getElementById("searchType");
+  const searchBy = document.getElementById("searchBy");
+  search.value = text;
+  searchBy.value = "type";
+  
+  search.dispatchEvent(new Event("input"));
+  searchBy.dispatchEvent(new Event("change"));
+  
 }

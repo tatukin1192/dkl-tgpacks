@@ -48,7 +48,21 @@ h1 {
   gap: 5px;
 }
 
+.search-hidden {
+  display: none;
+}
+
 #search {
+  background-color: #434343;
+  color: #fff;
+}
+
+#searchTypeView {
+  width: 100%;
+}
+
+#searchType {
+  width: 100%;
   background-color: #434343;
   color: #fff;
 }
@@ -223,6 +237,12 @@ img {
   padding-left: 1rem;
   margin-left: 10px;
 }
+
+.accordion p {
+  margin-left: -1rem;
+  list-style-type: disc;
+}
+
 
 .accordion summary {
   cursor: pointer;
@@ -456,7 +476,7 @@ img {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
   body {
     padding: 0 1rem;
   }

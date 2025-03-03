@@ -19,14 +19,23 @@
             <select id="searchBy" class="select">
               <option value="name">コンテンツ名</option>
               <option value="publisher">作成者</option>
+              <option value="type">種別</option>
             </select>
           </div>
           <input
             type="text"
             id="search"
-            class="input"
+            class="input search-name"
             placeholder="Search for an item..."
           />
+          <div id="searchTypeView" class="select search-types search-hidden">
+            <select id="searchType" class="select search-name">
+                <option value="Songs">Songs(パッケージ)</option>
+                <option value="NoteSkins">NoteSkins</option>
+                <option value="SoundEffects">SoundEffects</option>
+                <option value="GlobalLua">GlobalLua</option>
+              </select>
+          </div>
         </div>
         <div class="title-tools">
           <a href="https://github.com/tatukin1192/dkl-tgpacks" target="_blank" class="button is-info"
@@ -52,17 +61,18 @@
         <summary>ID凡例</summary>
         <div class="id-contents">
           <ul class="id-details-list">
-            <li>00000～09999：Songs(パッケージ)
+            <p>※各項目を押すと絞り込みできます</p>
+            <li>00000～09999：<a href="javascript:searchType('Songs');">Songs(パッケージ)</a>
               <ul>
-                <li>01000～01999：たつきんのダンカグ創作譜面RETURNS</li>
-                <li>02000～02999：ダンカグライクAnother Package</li>
-<!--                 <li>03000～03999：ダンカグライクOverDrive Package</li> -->
-<!--                 <li>04000～04999：ダンカグライクVariety Package</li> -->
+                <li>01000～01999：<a href="javascript:searchPack('たつきんのダンカグ創作譜面RETURNS');">たつきんのダンカグ創作譜面RETURNS</a></li>
+                <li>02000～02999：<a href="javascript:searchPack('ダンカグライクAnother Package');">ダンカグライクAnother Package</a></li>
+<!--                 <li>03000～03999：<a href="javascript:searchPack('ダンカグライクOverDrive Package');">ダンカグライクOverDrive Package</a></li> -->
+<!--                 <li>04000～04999：<a href="javascript:searchPack('ダンカグライクVariety Package');">ダンカグライクVariety Package</a></li> -->
               </ul>
             </li>
-            <li>10000～19999：NoteSkins</li>
-            <li>20000～29999：SoundEffects</li>
-            <li>30000～39999：GlobalLua</li>
+            <li>10000～19999：<a href="javascript:searchType('NoteSkins');">NoteSkins</a></li>
+            <li>20000～29999：<a href="javascript:searchType('SoundEffects');">SoundEffects</a></li>
+            <li>30000～39999：<a href="javascript:searchType('GlobalLua');">GlobalLua</a></li>
           </ul>
         </div>
       </details>
