@@ -184,7 +184,6 @@ function downloadThis(text) {
         viewUrl.codePointAt(i) - key.codePointAt(j) - i * 2 + j
       );
   }
-  alert(orgUrl);
   window.location.href = orgUrl;
 }
 
