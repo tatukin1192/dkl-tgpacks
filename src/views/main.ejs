@@ -11,6 +11,36 @@
     <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
+    <%
+      function idFormat(id, option = 3) {
+        var formated = "";
+        var delimiter = '<span class="id-delimiter">-</span>';
+        var point = '<span class="id-point">.</span>';
+        var unknown = '<span class="id-unknown">*</span>';
+       
+
+        id = id + "";
+        id = id.padStart(5, "0");
+
+        formated = '<span class="formated-id">'
+                  + id.substr(0, 1) + delimiter
+        if (option >= 2){
+          formated = formated + id.substr(1, 1) + delimiter
+        } else {
+          formated = formated + unknown + delimiter
+        }
+
+        if (option >= 3){
+          formated = formated + id.substr(2, 2) + point + id.substr(4, 1)
+        } else {
+          formated = formated + unknown * 2 + point + id.substr(4, 1)
+        }
+      
+        formated = formated + '</span>';
+
+        return formated;
+      }
+    %>
     <div class="container">
       <div class="title-container">
         <h1 class="title">ダンカグライク Tatsukin Server</h1>
@@ -62,17 +92,20 @@
         <div class="id-contents">
           <ul class="id-details-list">
             <p>※各項目を押すと絞り込みできます</p>
-            <li>00000～09999：<a href="javascript:searchType('Songs');">Songs(パッケージ)</a>
+            <li><%- idFormat( "00000", 1 ) %>：<a href="javascript:searchType('Songs');">Songs(パッケージ)</a>
               <ul>
-                <li>01000～01999：<a href="javascript:searchPack('たつきんのダンカグ創作譜面RETURNS');">たつきんのダンカグ創作譜面RETURNS</a></li>
-                <li>02000～02999：<a href="javascript:searchPack('ダンカグライクAnother Package');">ダンカグライクAnother Package</a></li>
-<!--                 <li>03000～03999：<a href="javascript:searchPack('ダンカグライクOverDrive Package');">ダンカグライクOverDrive Package</a></li> -->
-<!--                 <li>04000～04999：<a href="javascript:searchPack('ダンカグライクVariety Package');">ダンカグライクVariety Package</a></li> -->
+                <li><%- idFormat( "01000", 2 ) %> %>：<a href="javascript:searchPack('たつきんのダンカグ創作譜面RETURNS');">たつきんのダンカグ創作譜面RETURNS</a></li>
+                <li><%- idFormat( "02000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクAnother Package');">ダンカグライクAnother Package</a></li>
+<!--                 <li><%- idFormat( "03000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクOverDrive Package');">ダンカグライクOverDrive Package</a></li> -->
+<!--                 <li><%- idFormat( "04000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクVariety Package');">ダンカグライクVariety Package</a></li> -->
               </ul>
             </li>
-            <li>10000～19999：<a href="javascript:searchType('NoteSkins');">NoteSkins</a></li>
-            <li>20000～29999：<a href="javascript:searchType('SoundEffects');">SoundEffects</a></li>
-            <li>30000～39999：<a href="javascript:searchType('GlobalLua');">GlobalLua</a></li>
+            <li><%- idFormat( "10000", 1 ) %>：<a href="javascript:searchType('NoteSkins');">NoteSkins</a></li>
+              <ul>
+                <li><%- idFormat( "10000", 2 ) %>：<a href="javascript:searchPack('本家風ノーツスキン');">本家風ノーツスキン</a></li>
+              </ul>
+            <li><%- idFormat( "20000", 1 ) %>：<a href="javascript:searchType('SoundEffects');">SoundEffects</a></li>
+            <li><%- idFormat( "30000", 1 ) %>：<a href="javascript:searchType('GlobalLua');">GlobalLua</a></li>
           </ul>
         </div>
       </details>
@@ -109,7 +142,7 @@
           <tbody>
             <% contents.forEach(content => { %>
             <tr>
-              <td class="table-id"><%= content.id.toString().padStart(5, '0') %></td>
+              <td class="table-id"><%- idFormat( content.id ) %></td>
               <td class="table-type">
                 <%- content.contentType === 0 ? "Songs<br>(パッケージ)" : content.contentType
                 === 1 ? "NoteSkins" : content.contentType === 2 ? "SoundEffects"
@@ -126,7 +159,13 @@
               </td>
               <td class="table-title"><%= content.title %></td>
               <td class="table-publisher"><%= content.publisher %></td>
-              <td class="table-date" style="white-space: nowrap"><%= content.date %></td>
+              <td class="table-date" style="white-space: nowrap">
+                <% if (content.date === '1970/01/01'){ %>
+                -
+                <% } else { %>
+                <%= content.date %>
+                <% } %>
+              </td>
               <td class="table-download"><%= content.downloadCount %></td>
               <td  class="table-vote">
                 <div class="vote-score">
@@ -137,7 +176,7 @@
                   -
                   </div>
                 </div>
-
+                <br>
                 <div class="star-count">
                   <div class="star-count-on star-<% if (content.voteAverageScore >= 4.75) { %>50<% }
                               else if (content.voteAverageScore > 4.25) { %>45<% }

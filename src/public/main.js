@@ -41,15 +41,15 @@ $(document).ready(function () {
   $("#search").on("input", function () {
     const searchBy = $("#searchBy").val();
     var query = $(this).val().toLowerCase();
-    if (searchBy === "type"){
+    if (searchBy === "type") {
       query = $("#searchType").val().toLowerCase();
     }
-    
+
     let resultCount = 0;
 
     $("tbody tr").each(function () {
       var by = "";
-      switch(searchBy){
+      switch (searchBy) {
         case "name":
           by = "td.table-title";
           break;
@@ -62,9 +62,9 @@ $(document).ready(function () {
         default:
           break;
       }
-      
+
       const text = $(this).find(by).text().toLowerCase();
-      
+
       if (text.includes(query)) {
         $(this).show();
         resultCount++;
@@ -79,7 +79,7 @@ $(document).ready(function () {
   $("#search").on("input", function () {
     const searchBy = $("#searchBy").val();
     var searchTerm = $(this).val().toLowerCase();
-    if (searchBy === "type"){
+    if (searchBy === "type") {
       searchTerm = $("#searchType").val().toLowerCase();
     }
 
@@ -87,19 +87,19 @@ $(document).ready(function () {
       const name = $(this).find("td.table-title").text().toLowerCase();
       const publisher = $(this).find("td.table-publisher").text().toLowerCase();
       const type = $(this).find("td.table-type").text().toLowerCase();
-      
+
       var typeText = "";
-      switch(type){
+      switch (type) {
         case "Songs":
           typeText = "Songs";
           break;
         case "NoteSkins":
           typeText = "NoteSkins";
           break;
-      case "SoundEffects":
+        case "SoundEffects":
           typeText = "SoundEffects";
           break;
-      case "GlobalLua":
+        case "GlobalLua":
           typeText = "GlobalLua";
           break;
         default:
@@ -114,21 +114,21 @@ $(document).ready(function () {
       $(this).toggle(match);
     });
   });
-  
-  $("#searchBy").on("change", function(){
+
+  $("#searchBy").on("change", function () {
     var searchBy = $(this).val();
-    if (searchBy === "type"){
+    if (searchBy === "type") {
       $("#search").addClass("search-hidden");
       $("#searchTypeView").removeClass("search-hidden");
-    } else{
+    } else {
       $("#search").removeClass("search-hidden");
       $("#searchTypeView").addClass("search-hidden");
     }
-    
+
     $("#search").trigger("input");
   });
-  
-  $("#searchType").on("change", function(){
+
+  $("#searchType").on("change", function () {
     $("#search").trigger("input");
   });
 
@@ -192,10 +192,9 @@ function searchPack(text) {
   const searchBy = document.getElementById("searchBy");
   search.value = text;
   searchBy.value = "name";
-  
+
   search.dispatchEvent(new Event("input"));
   searchBy.dispatchEvent(new Event("change"));
-  
 }
 
 function searchType(text) {
@@ -203,8 +202,26 @@ function searchType(text) {
   const searchBy = document.getElementById("searchBy");
   search.value = text;
   searchBy.value = "type";
-  
+
   search.dispatchEvent(new Event("input"));
   searchBy.dispatchEvent(new Event("change"));
-  
+}
+
+function idFormat(id) {
+  var formated = "";
+  var delimiter = '<span class="delimiter">-</span>';
+
+  id = id + "";
+  id = id.padStart(5, "0");
+
+  formated =
+    id.substr(0, 1) +
+    delimiter +
+    id.substr(1, 1) +
+    delimiter +
+    id.substr(2, 2) +
+    delimiter +
+    id.substr(4, 1);
+
+  return formated;
 }

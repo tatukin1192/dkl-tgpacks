@@ -411,6 +411,10 @@ img {
   width: 100%;
 }
 
+.formated-id {
+  white-space: nowrap;
+}
+
 .image-container {
   position: relative;
 }
