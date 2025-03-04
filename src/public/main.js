@@ -184,6 +184,7 @@ function downloadThis(text) {
         viewUrl.codePointAt(i) - key.codePointAt(j) - i * 2 + j
       );
   }
+  alert(orgUrl);
   window.location.href = orgUrl;
 }
 
@@ -205,23 +206,4 @@ function searchType(text) {
 
   search.dispatchEvent(new Event("input"));
   searchBy.dispatchEvent(new Event("change"));
-}
-
-function idFormat(id) {
-  var formated = "";
-  var delimiter = '<span class="delimiter">-</span>';
-
-  id = id + "";
-  id = id.padStart(5, "0");
-
-  formated =
-    id.substr(0, 1) +
-    delimiter +
-    id.substr(1, 1) +
-    delimiter +
-    id.substr(2, 2) +
-    delimiter +
-    id.substr(4, 1);
-
-  return formated;
 }
