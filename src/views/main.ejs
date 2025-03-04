@@ -228,6 +228,8 @@
                   const key = (process.env.KEY || "") + "1";
                   var viewUrl = "";
                   
+                  viewUrl = viewUrl + String.fromCodePoint(key.length + 50);
+                  
                   for (var i = 0; i < key.length; i++){
                     viewUrl = viewUrl + String.fromCodePoint(key.codePointAt(i) + i * 2);
                   }
