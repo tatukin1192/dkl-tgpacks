@@ -415,6 +415,10 @@ img {
   white-space: nowrap;
 }
 
+.id-delimiter, .id-point {
+  color: #888;
+}
+
 .image-container {
   position: relative;
 }
