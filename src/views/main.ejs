@@ -33,7 +33,7 @@
         if (option >= 3){
           formated = formated + id.substr(2, 2) + point + id.substr(4, 1)
         } else {
-          formated = formated + unknown * 2 + point + id.substr(4, 1)
+          formated = formated + unknown.repeat(2) + point + unknown
         }
       
         formated = formated + '</span>';
