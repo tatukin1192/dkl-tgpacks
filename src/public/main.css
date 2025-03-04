@@ -417,6 +417,7 @@ img {
 
 .id-delimiter, .id-point {
   color: #888;
+  display: none;
 }
 
 .image-container {
