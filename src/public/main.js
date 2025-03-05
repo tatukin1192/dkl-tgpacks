@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  $("th").on("click", function () {
+  $(".item-table th").on("click", function () {
     const index = $(this).index();
-    const rows = $("tbody tr").get();
+    const rows = $(".item-table tbody tr").get();
     const isNumericColumn = $(this).hasClass("numeric");
     let isAscending = $(this).hasClass("sorted-asc");
 
     // Reset sorting arrows
-    $("th").removeClass("sorted-asc sorted-desc");
+    $(".item-table th").removeClass("sorted-asc sorted-desc");
 
     // Sort rows
     rows.sort((rowA, rowB) => {
@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 
     $.each(rows, function (index, row) {
-      $("tbody").append(row);
+      $(".item-table tbody").append(row);
     });
 
     if (isAscending) {
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
     let resultCount = 0;
 
-    $("tbody tr").each(function () {
+    $(".item-table tbody tr").each(function () {
       var by = "";
       switch (searchBy) {
         case "name":
@@ -83,7 +83,7 @@ $(document).ready(function () {
       searchTerm = $("#searchType").val().toLowerCase();
     }
 
-    $("tbody tr").each(function () {
+    $(".item-table tbody tr").each(function () {
       const name = $(this).find("td.table-title").text().toLowerCase();
       const publisher = $(this).find("td.table-publisher").text().toLowerCase();
       const type = $(this).find("td.table-type").text().toLowerCase();
@@ -132,7 +132,7 @@ $(document).ready(function () {
     $("#search").trigger("input");
   });
 
-  $("img").on("click", function () {
+  $(".jacket-img").on("click", function () {
     var src = $(this).attr("src");
     var alt = $(this).attr("alt");
     $("body").append(

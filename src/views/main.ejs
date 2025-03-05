@@ -87,35 +87,54 @@
         詳しい使い方は<a target="_blank" href="https://github.com/tatukin1192/dkl-tgpacks">こちら</a>をご覧ください。
       </p>
       
-      <details class="id-details accordion">
-        <summary>ID凡例</summary>
-        <div class="id-contents">
-          <ul class="id-details-list">
+      <div class="details-wrapper">
+        <details class="id-details accordion">
+          <summary>ID凡例</summary>
+          <div class="id-contents">
             <p>※各項目を押すと絞り込みできます</p>
-            <li><%- idFormat( "00000", 1 ) %>：<a href="javascript:searchType('Songs');">Songs(パッケージ)</a>
-              <ul>
-                <li><%- idFormat( "01000", 2 ) %> %>：<a href="javascript:searchPack('たつきんのダンカグ創作譜面RETURNS');">たつきんのダンカグ創作譜面RETURNS</a></li>
-                <li><%- idFormat( "02000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクAnother Package');">ダンカグライクAnother Package</a></li>
-<!--                 <li><%- idFormat( "03000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクOverDrive Package');">ダンカグライクOverDrive Package</a></li> -->
-<!--                 <li><%- idFormat( "04000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクVariety Package');">ダンカグライクVariety Package</a></li> -->
-              </ul>
-            </li>
-            <li><%- idFormat( "10000", 1 ) %>：<a href="javascript:searchType('NoteSkins');">NoteSkins</a></li>
-              <ul>
-                <li><%- idFormat( "10000", 2 ) %>：<a href="javascript:searchPack('本家風ノーツスキン');">本家風ノーツスキン</a></li>
-              </ul>
-            <li><%- idFormat( "20000", 1 ) %>：<a href="javascript:searchType('SoundEffects');">SoundEffects</a></li>
-            <li><%- idFormat( "30000", 1 ) %>：<a href="javascript:searchType('GlobalLua');">GlobalLua</a></li>
-          </ul>
-        </div>
-      </details>
-      
+            <ul class="id-details-list">
+              <li><%- idFormat( "00000", 1 ) %>：<a href="javascript:searchType('Songs');">Songs(パッケージ)</a>
+                <ul>
+                  <li><%- idFormat( "01000", 2 ) %> %>：<a href="javascript:searchPack('たつきんのダンカグ創作譜面RETURNS');">たつきんのダンカグ創作譜面RETURNS</a></li>
+                  <li><%- idFormat( "02000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクAnother Package');">ダンカグライクAnother Package</a></li>
+  <!--                 <li><%- idFormat( "03000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクOverDrive Package');">ダンカグライクOverDrive Package</a></li> -->
+  <!--                 <li><%- idFormat( "04000", 2 ) %>：<a href="javascript:searchPack('ダンカグライクVariety Package');">ダンカグライクVariety Package</a></li> -->
+                </ul>
+              </li>
+              <li><%- idFormat( "10000", 1 ) %>：<a href="javascript:searchType('NoteSkins');">NoteSkins</a></li>
+                <ul>
+                  <li><%- idFormat( "10000", 2 ) %>：<a href="javascript:searchPack('本家風ノーツスキン');">本家風ノーツスキン</a></li>
+                  <li><%- idFormat( "11000", 2 ) %>：<a href="javascript:searchPack('他音ゲー風ノーツスキン');">他音ゲー風ノーツスキン</a></li>
+                  <li><%- idFormat( "12000", 2 ) %>：<a href="javascript:searchPack('手描きノーツスキン');">手描きノーツスキン</a></li>
+                </ul>
+              <li><%- idFormat( "20000", 1 ) %>：<a href="javascript:searchType('SoundEffects');">SoundEffects</a></li>
+              <li><%- idFormat( "30000", 1 ) %>：<a href="javascript:searchType('GlobalLua');">GlobalLua</a></li>
+            </ul>
+            <p>※IDが<%- idFormat( "01010" ) %>の場合</p>
+            <table class="table id-details-table is-bordered">
+              <tr>
+                <th class="id-table-type">種別コード</th><th class="id-table-series">シリーズ番号</th><th class="id-table-vol" colspan="2">コンテンツ番号</th>
+              </tr>
+              <tr>
+                <td>コンテンツの種別</td><td>シリーズ(○○パッケージなど)の番号</td><td colspan="2">第何回か(3桁目は小数部)</td>
+              </tr>
+              <tr class="id-numric">
+                <td>0</td><td>1</td><td>01</td><td>0</td>
+              </tr>
+              <tr>
+                <td>Songs(パッケージ)</td><td>たつきんのダンカグ創作譜面RETURNS</td><td colspan="2">Part1</td>
+              </tr>
+            </table>
+          </div>
+        </details>
+      </div>
+        
       <hr>
       
       <p id="resultCount">コンテンツ数：<%= totalCount %>件</p>
 
       <div class="table-wrapper">
-        <table class="table is-striped is-bordered">
+        <table class="table item-table is-striped is-bordered">
           <thead>
             <tr>
               <th class="table-id sortable">ID <span class="sort-arrow"></span></th>
