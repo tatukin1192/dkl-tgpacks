@@ -137,9 +137,9 @@ $(document).ready(function () {
     var alt = $(this).attr("alt");
     $("body").append(
       '<div class="popup">' +
-        '<span class="popup-close"> </span>' +
         '<div class="popup-inside">' +
         "<div>" +
+        '<div class="popup-white">' +
         '<img class="popup-image" src="' +
         src +
         '">' +
@@ -148,11 +148,20 @@ $(document).ready(function () {
         "</p>" +
         "</div>" +
         "</div>" +
+        "</div>" +
+        '<span class="popup-close">×</span>' +
         "</div>"
     );
     $(".popup").fadeIn();
-
-    $(".popup-close").on("click", function () {
+    $(".popup-image").on("click", function () {
+      var imageId = src.substr(src.indexOf("/d/") + 3);
+      window.location.href = "https://drive.google.com/uc?export=download&id=" + imageId;
+    });
+    
+    $(".popup div, .popup-close").on("click", function () {
+      if ($(this).attr('class') === "popup-white"){
+        return false;
+      }
       $(".popup").fadeOut(function () {
         $(this).remove();
       });
