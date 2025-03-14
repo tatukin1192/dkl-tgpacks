@@ -130,9 +130,14 @@
       </div>
         
       <hr>
-      
-      <p id="resultCount">コンテンツ数：<%= totalCount %>件</p>
-
+      <% var sumDownloads = 0;
+         contents.forEach(content => {
+        sumDownloads += content.downloadCount
+        }); %>
+      <div class="result-counter">
+        <p class="result-count" id="resultCount">コンテンツ数：<%= totalCount %>件</p>
+        <p class="result-count">合計ダウンロード数：<%= sumDownloads %></p> 
+      </div>
       <div class="table-wrapper">
         <table class="table item-table is-striped is-bordered">
           <thead>

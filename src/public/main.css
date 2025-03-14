@@ -71,11 +71,15 @@ h1 {
   color: #fff;
 }
 
-#resultCount {
+.result-counter {
+  margin-bottom: 10px;
+}
+
+.result-count {
   display: inline-block;
   color: #fff;
   font-size: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background-color: #00749b;
   padding: 2px 10px;
   border-radius: 10px;
