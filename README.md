@@ -9,8 +9,8 @@
 
 - たつきんのダンカグ創作譜面 RETURNS
 - ダンカグライクAnother Package
-<!-- - ダンカグライクOverDrive Package
-- ダンカグライクVariety Package -->
+- ダンカグライクOverDrive Package
+<!-- - ダンカグライクVariety Package -->
 
 ## 使い方
 
