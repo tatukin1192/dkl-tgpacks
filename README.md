@@ -33,7 +33,7 @@ https://dkl-tgpacks.onrender.com
 ![手順4](https://lh3.googleusercontent.com/d/1LVJY89-q3WpgfXnv3EBp-5jG9z7O9wnN)
 
 設定画面を閉じ、下にスクロールして「コンテンツ」を押します。<br>
-※Glitch の仕様上、20秒程度待たないと出てこない場合があります。
+※Render の仕様上、50秒程度待たないと出てこない場合があります。
 ![手順5](https://lh3.googleusercontent.com/d/1YnC3P9Xq_6J170TObgbT8DueFxlSYv8t)
 
 ダウンロードしたいコンテンツを選択します。
