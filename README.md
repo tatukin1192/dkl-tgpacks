@@ -26,11 +26,11 @@
 「BaseURL」に以下のURLをコピーして貼り付けます。
 
 ```
-https://tg-dklpacks.glitch.me/
+https://dkl-tgpacks.onrender.com
 ```
 
 ※「Authorization」には何も入力しないでください。
-![手順4](https://lh3.googleusercontent.com/d/183wD8Se2oPeM4LS7orxclYh_WnuL4Jaz)
+![手順4](https://lh3.googleusercontent.com/d/1LVJY89-q3WpgfXnv3EBp-5jG9z7O9wnN)
 
 設定画面を閉じ、下にスクロールして「コンテンツ」を押します。<br>
 ※Glitch の仕様上、20秒程度待たないと出てこない場合があります。
