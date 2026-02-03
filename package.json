@@ -22,5 +22,8 @@
     "jsx": "^0.9.89",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
+  },
+  "overrides": {
+    "minimist": "1.2.6"
   }
 }
